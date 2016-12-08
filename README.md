@@ -2,8 +2,8 @@
 
 ## Objective
 
-* Build a table view that loads a list of the Elements. Use the built in Subtitle
-    UITableViewCell, with a thumbnail image, setting the title and the subtitle/detail as follows:
+* Build a table view that loads and displays a list of the Elements, one per cell/row. Use the built in Subtitle
+    UITableViewCell setting the title and the subtitle/detail as follows:
 
     ```
     Name
@@ -14,7 +14,9 @@
     Sodium
     Na(11) 22.9897
     ```
-
+    
+    Load a thumbnail image on each row as described below under Endpoints > Images.
+    
 * Tapping a cell segues to a detail view that:
     * sets the title to the ```name``` of the element
     * shows the larger image 
