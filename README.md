@@ -2,8 +2,8 @@
 
 ## Objective
 
-* Build a table view application that loads a list of the Elements. Use the built in detail
-    cell, with a thumbnail image, setting the title and the detail as follows:
+* Build a table view that loads a list of the Elements. Use the built in Subtitle
+    UITableViewCell, with a thumbnail image, setting the title and the subtitle as follows:
 
     ```
     Name
@@ -15,11 +15,25 @@
     Na(11) 22.9897
     ```
 
-* Tapping a cell segue's to a detail view that shows a larger image and all collected
-  data fields.
+* Tapping a cell segues to a detail view that:
+    * sets the title to the ```name``` of the element
+    * shows the larger image 
+    * and the following data:
+        * symbol
+        * number
+        * weight
+        * melting point
+        * boiling point
 
-* There is a button on the detail page that allows you to select this element as your favorite. The
-    favorite is written to the server via a POST.
+    * has a button that, when pressed, selects this element as your favorite. This
+    should be implemented by a POST to the ```favorites``` endpoint.
+
+* Extra credit
+    1. Try to include as much of the data as you can in the detail
+    1. Try to format the detail view as much like an individual element on a traditional periodic table as you can. Refer to http://sciencenotes.org/wp-content/uploads/2013/06/PeriodicTable-NoBackground2.png if necessary. **Be sure to still include
+    the image, melting and boiling points, which are part of the basic requirements.** In fact, to meet the 
+    basic requirements and both of these extra credits I'd recommend generating the traditional representation and then
+    just putting the extra info outside of it.
 
 ## Endpoints
 
@@ -28,6 +42,8 @@
 ```
 https://api.fieldbook.com/v1/58488d40b3e2ba03002df662/elements
 ```
+
+This is a public read-only GET endpoint so no authentication is necessary.
 
 **Images**
 
@@ -43,11 +59,61 @@ e.g.
 https://s3.amazonaws.com/ac3.2-elements/Sn.png
 ```
 
-**Favorite**
+Use the file naming convention illustrated here to generate urls for images.
+
+**Favorites**
 
 ```
 POST https://api.fieldbook.com/v1/58488d40b3e2ba03002df662/favorites
 ```
+
+This endpoint expects JSON with the following two keys: "my_name" and "favorite_element".
+Values should be your own name, and the symbol of the element currently displayed by the detail page, respectively.
+These are passed in via the second parameter of the ```postRequest(endPoint:data:)``` method 
+of the APIRequestManager.
+
+## Data structure
+
+Elements looks like this:
+
+```javascript
+    {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/5848deac37802c0400b17c6b",
+    "number": 1,
+    "weight": 1.0079,
+    "name": "Hydrogen",
+    "symbol": "H",
+    "melting_c": -259,
+    "boiling_c": -253,
+    "density": 0.09,
+    "crust_percent": 0.14,
+    "discovery_year": "1776",
+    "group": 1,
+    "electrons": "1s1",
+    "ion_energy": 13.5984
+    },
+    {
+    "id": 109,
+    "record_url": "https://fieldbook.com/records/5848dead37802c0400b17cd7",
+    "number": 109,
+    "weight": 268,
+    "name": "Meitnerium",
+    "symbol": "Mt",
+    "melting_c": null,
+    "boiling_c": null,
+    "density": null,
+    "crust_percent": null,
+    "discovery_year": "1982",
+    "group": 9,
+    "electrons": null,
+    "ion_energy": null
+    }
+```
+
+Note the types of the variables and how many keys in the second example have null values.
+You should process the JSON data into your object in such a way that those fields are 
+allowed to be null, and that the object is still instantiated.
 
 ## API Request Manager
 
@@ -59,6 +125,8 @@ endpoint passed to it. There is no closure so the calling context won't know whe
 nor will it receive any data. This is fine. **Check your console for confirmation** for the
 one data call you'll need this for.
 
+The needed headers are included in this method so you don't need to worry about your own FieldBook
+account.
 ```swift
 import Foundation
 
