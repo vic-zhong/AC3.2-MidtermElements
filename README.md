@@ -1,5 +1,15 @@
 # AC3.2-MidtermElements
 
+## Setup
+
+1. Fork this repo.
+1. Clone this repo to your laptop.
+1. Create a new project (Single View Application) inside it called "AC3.2-MidtermElements".
+1. Work on the assessment as described below.
+1. Commit your work.
+1. Push it to your fork.
+1. Create a pull request.
+
 ## Objective
 
 * Build a table view that loads and displays a list of the Elements, one per cell/row. Use the built in Subtitle
