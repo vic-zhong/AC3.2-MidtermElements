@@ -18,7 +18,8 @@
 * Tapping a cell segue's to a detail view that shows a larger image and all collected
   data fields.
 
-* The Favorite 
+* There is a button on the detail page that allows you to select this element as your favorite. The
+    favorite is written to the server via a POST.
 
 ## Endpoints
 
