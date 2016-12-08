@@ -30,7 +30,8 @@
 
 * Extra credit
     1. Try to include as much of the data as you can in the detail
-    1. Try to format the detail view as much like an individual element on a traditional periodic table as you can. Refer to http://sciencenotes.org/wp-content/uploads/2013/06/PeriodicTable-NoBackground2.png if necessary. **Be sure to still include
+    1. Try to format the detail view as much like an individual element on a traditional periodic table as you can. Refer to http://sciencenotes.org/wp-content/uploads/2013/06/PeriodicTable-NoBackground2.png or any online resource you like.
+    **Be sure to still include
     the image, melting and boiling points, which are part of the basic requirements.** In fact, to meet the 
     basic requirements and both of these extra credits I'd recommend generating the traditional representation and then
     just putting the extra info outside of it.
