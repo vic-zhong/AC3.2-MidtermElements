@@ -3,7 +3,7 @@
 ## Objective
 
 * Build a table view application that loads a list of the Elements. Use the built in detail
-    cell, with a thumnail image, setting the title and the detail as follows:
+    cell, with a thumbnail image, setting the title and the detail as follows:
 
     ```
     Name
