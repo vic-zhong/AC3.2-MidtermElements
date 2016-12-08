@@ -3,7 +3,7 @@
 ## Objective
 
 * Build a table view that loads a list of the Elements. Use the built in Subtitle
-    UITableViewCell, with a thumbnail image, setting the title and the subtitle as follows:
+    UITableViewCell, with a thumbnail image, setting the title and the subtitle/detail as follows:
 
     ```
     Name
