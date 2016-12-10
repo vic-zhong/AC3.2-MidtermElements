@@ -45,8 +45,8 @@ class DetailViewController: UIViewController {
         guard let validElement = element else { return }
         
         self.symbolLabel.text = String(validElement.number)
-        self.nameLabel.text = "\(validElement.name) (\(validElement.symbol))"
-        self.weightLabel.text = "Atomic Mass: \(validElement.weight)"
+        self.nameLabel.text = " \(validElement.name) (\(validElement.symbol))  "
+        self.weightLabel.text = " Atomic Mass: \(validElement.weight)  "
         
         if validElement.boiling == 9000 {
             self.boilLabel.text = "Boiling Point: IT'S OVER 9,000!*"
