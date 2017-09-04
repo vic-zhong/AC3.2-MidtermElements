@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ElementsTableViewController: UITableViewController {
     
@@ -32,12 +33,7 @@ class ElementsTableViewController: UITableViewController {
         }
     }
     
-    
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return elements.count
@@ -50,15 +46,18 @@ class ElementsTableViewController: UITableViewController {
         cell.textLabel?.text = cellElement.name
         cell.detailTextLabel?.text = "\(cellElement.symbol)(\(cellElement.number)) \(cellElement.weight)"
         
-        APIRequestManager.manager.getData(endPoint: cellElement.thumb) { (data: Data?) in
-            if let validData = data,
-                let validImage = UIImage(data: validData) {
-                DispatchQueue.main.async {
-                    cell.imageView?.image = validImage
-                    cell.setNeedsLayout()
-                }
-            }
-        }
+        let url = URL(string: cellElement.thumb)!
+        cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
+        
+//        APIRequestManager.manager.getData(endPoint: cellElement.thumb) { (data: Data?) in
+//            if let validData = data,
+//                let validImage = UIImage(data: validData) {
+//                DispatchQueue.main.async {
+//                    cell.imageView?.image = validImage
+//                    cell.setNeedsLayout()
+//                }
+//            }
+//        }
         
         return cell
     }
