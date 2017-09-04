@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C7329F2D06C8A099B5F411A /* Pods_AC3_2_MidtermElements.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BC13A52894089AB4C748B1 /* Pods_AC3_2_MidtermElements.framework */; };
 		9E9E28D01DF9E6F200828C07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E28CF1DF9E6F200828C07 /* AppDelegate.swift */; };
 		9E9E28D51DF9E6F200828C07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E28D31DF9E6F200828C07 /* Main.storyboard */; };
 		9E9E28D71DF9E6F200828C07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E9E28D61DF9E6F200828C07 /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7041C4D2AC7551493DDADC73 /* Pods-AC3.2-MidtermElements.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-MidtermElements.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements.debug.xcconfig"; sourceTree = "<group>"; };
+		70BC13A52894089AB4C748B1 /* Pods_AC3_2_MidtermElements.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC3_2_MidtermElements.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9E28CC1DF9E6F200828C07 /* AC3.2-MidtermElements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC3.2-MidtermElements.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9E28CF1DF9E6F200828C07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E9E28D41DF9E6F200828C07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		9E9E28E31DF9E84600828C07 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9E9E28E81DF9E96500828C07 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
 		9E9E28EB1DF9E9B500828C07 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		BE8CA8B71370E4FD2AF4CD6A /* Pods-AC3.2-MidtermElements.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-MidtermElements.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +39,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C7329F2D06C8A099B5F411A /* Pods_AC3_2_MidtermElements.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22DED060C517A57924260DA7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7041C4D2AC7551493DDADC73 /* Pods-AC3.2-MidtermElements.debug.xcconfig */,
+				BE8CA8B71370E4FD2AF4CD6A /* Pods-AC3.2-MidtermElements.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9E9E28C31DF9E6F200828C07 = {
 			isa = PBXGroup;
 			children = (
 				9E9E28CE1DF9E6F200828C07 /* AC3.2-MidtermElements */,
 				9E9E28CD1DF9E6F200828C07 /* Products */,
+				22DED060C517A57924260DA7 /* Pods */,
+				A969B18639ED1EE28287F197 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +121,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		A969B18639ED1EE28287F197 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70BC13A52894089AB4C748B1 /* Pods_AC3_2_MidtermElements.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E9E28DE1DF9E6F200828C07 /* Build configuration list for PBXNativeTarget "AC3.2-MidtermElements" */;
 			buildPhases = (
+				ADE8CD4F68C959D7507266F1 /* [CP] Check Pods Manifest.lock */,
 				9E9E28C81DF9E6F200828C07 /* Sources */,
 				9E9E28C91DF9E6F200828C07 /* Frameworks */,
 				9E9E28CA1DF9E6F200828C07 /* Resources */,
+				58EC5DF4ADBABD3AB03BFA94 /* [CP] Embed Pods Frameworks */,
+				21DA653C3825514EFF51F436 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,6 +198,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		21DA653C3825514EFF51F436 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58EC5DF4ADBABD3AB03BFA94 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADE8CD4F68C959D7507266F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AC3.2-MidtermElements-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9E9E28C81DF9E6F200828C07 /* Sources */ = {
@@ -302,6 +383,7 @@
 		};
 		9E9E28DF1DF9E6F200828C07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7041C4D2AC7551493DDADC73 /* Pods-AC3.2-MidtermElements.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AC3.2-MidtermElements/Info.plist";
@@ -314,6 +396,7 @@
 		};
 		9E9E28E01DF9E6F200828C07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE8CA8B71370E4FD2AF4CD6A /* Pods-AC3.2-MidtermElements.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AC3.2-MidtermElements/Info.plist";

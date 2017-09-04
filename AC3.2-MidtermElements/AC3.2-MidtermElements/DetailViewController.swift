@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
     
@@ -19,19 +20,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var boilLabel: UILabel!
     @IBOutlet weak var stealthLabel: UILabel!
     @IBOutlet weak var faveButton: UIButton!
-    
-    @IBAction func faveButtonTapped(_ sender: UIButton) {
-        guard let validElement = element else { return }
-        
-        let favorite: [String : Any] = [
-            "my_name" : "Vic Zhong",
-            "favorite_element" : validElement.symbol
-        ]
-        
-        APIRequestManager.manager.postRequest(endPoint: "https://api.fieldbook.com/v1/58488d40b3e2ba03002df662/favorites", data: favorite)
-        
-        self.faveButton.isEnabled = false
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +53,38 @@ class DetailViewController: UIViewController {
         if validElement.boiling == 9000 || validElement.melting == -9000 {
             self.stealthLabel.isHidden = false
         }
+
+        let url = URL(string: validElement.image)
+        self.imageView.kf.indicatorType = .activity
+        self.imageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
         
-        APIRequestManager.manager.getData(endPoint: validElement.image) { (data: Data?) in
-            if let validData = data,
-                let validImage = UIImage(data: validData) {
-                print(validElement.image)
-                DispatchQueue.main.sync {
-                    self.imageView.image = validImage
-                }
-            }
-        }
+//        APIRequestManager.manager.getData(endPoint: validElement.image) { (data: Data?) in
+//            if let validData = data,
+//                let validImage = UIImage(data: validData) {
+//                print(validElement.image)
+//                DispatchQueue.main.sync {
+//                    self.imageView.image = validImage
+//                }
+//            }
+//        }
     }
+
+    
+    @IBAction func faveButtonTapped(_ sender: UIButton) {
+        postFaves()
+    }
+    
+    func postFaves() {
+        guard let validElement = element else { return }
+        
+        let favorite: [String : Any] = [
+            "my_name" : "Vic Zhong",
+            "favorite_element" : validElement.symbol
+        ]
+        
+        APIRequestManager.manager.postRequest(endPoint: "https://api.fieldbook.com/v1/58488d40b3e2ba03002df662/favorites", data: favorite)
+        
+        self.faveButton.isEnabled = false
+    }
+
 }
