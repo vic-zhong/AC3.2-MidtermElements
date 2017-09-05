@@ -16,6 +16,7 @@
 		9E9E28E41DF9E84600828C07 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E28E31DF9E84600828C07 /* DetailViewController.swift */; };
 		9E9E28E91DF9E96500828C07 /* APIRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E28E81DF9E96500828C07 /* APIRequestManager.swift */; };
 		9E9E28EC1DF9E9B500828C07 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9E28EB1DF9E9B500828C07 /* Element.swift */; };
+		9EBD0AF11F5E22DD00F3F4E3 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBD0AF01F5E22DD00F3F4E3 /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		9E9E28E31DF9E84600828C07 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9E9E28E81DF9E96500828C07 /* APIRequestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestManager.swift; sourceTree = "<group>"; };
 		9E9E28EB1DF9E9B500828C07 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		9EBD0AF01F5E22DD00F3F4E3 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		BE8CA8B71370E4FD2AF4CD6A /* Pods-AC3.2-MidtermElements.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-MidtermElements.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-MidtermElements/Pods-AC3.2-MidtermElements.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 			children = (
 				9E9E28E11DF9E79E00828C07 /* ElementsTableViewController.swift */,
 				9E9E28E31DF9E84600828C07 /* DetailViewController.swift */,
+				9EBD0AF01F5E22DD00F3F4E3 /* OptionsViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				9E9E28E91DF9E96500828C07 /* APIRequestManager.swift in Sources */,
 				9E9E28E41DF9E84600828C07 /* DetailViewController.swift in Sources */,
 				9E9E28E21DF9E79E00828C07 /* ElementsTableViewController.swift in Sources */,
+				9EBD0AF11F5E22DD00F3F4E3 /* OptionsViewController.swift in Sources */,
 				9E9E28D01DF9E6F200828C07 /* AppDelegate.swift in Sources */,
 				9E9E28EC1DF9E9B500828C07 /* Element.swift in Sources */,
 			);

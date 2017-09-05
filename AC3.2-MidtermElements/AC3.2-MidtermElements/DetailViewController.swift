@@ -12,6 +12,8 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     var element: Element?
+    var name: String?
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -75,10 +77,10 @@ class DetailViewController: UIViewController {
     }
     
     func postFaves() {
-        guard let validElement = element else { return }
+        guard let validElement = element, let myName = name else { return }
         
         let favorite: [String : Any] = [
-            "my_name" : "Vic Zhong",
+            "my_name" : myName,
             "favorite_element" : validElement.symbol
         ]
         
