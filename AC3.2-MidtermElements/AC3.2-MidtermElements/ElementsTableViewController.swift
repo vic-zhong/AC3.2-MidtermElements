@@ -13,7 +13,9 @@ class ElementsTableViewController: UITableViewController {
     
     let cellIdentifier = "elementCellReuse"
     let cellSegue = "elementSegue"
+    let optionsSegue = "optionsSegue"
     var elements = [Element]()
+    var myName = "Vic Zhong"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,28 @@ class ElementsTableViewController: UITableViewController {
                 self.elements = validElements
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
+                    self.prefetchAllImages()
                 }
             }
         }
+    }
+    
+    //MARK: - Functions and Methods
+    
+    func prefetchAllImages() {
+        let thumbUrls = self.elements.map {
+            URL(string: $0.thumb)!
+        }
+        
+        //        let imageUrls = self.elements.map {
+        //            URL(string: $0.image)!
+        //        }
+        
+        let prefetcher = ImagePrefetcher(urls: thumbUrls, completionHandler: { (skippedResources, failedResources, completedResources) in
+            print("Fetched \(completedResources)")
+        })
+        
+        prefetcher.start()
     }
     
     // MARK: - Table view data source
@@ -49,15 +70,15 @@ class ElementsTableViewController: UITableViewController {
         let url = URL(string: cellElement.thumb)!
         cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
         
-//        APIRequestManager.manager.getData(endPoint: cellElement.thumb) { (data: Data?) in
-//            if let validData = data,
-//                let validImage = UIImage(data: validData) {
-//                DispatchQueue.main.async {
-//                    cell.imageView?.image = validImage
-//                    cell.setNeedsLayout()
-//                }
-//            }
-//        }
+        //        APIRequestManager.manager.getData(endPoint: cellElement.thumb) { (data: Data?) in
+        //            if let validData = data,
+        //                let validImage = UIImage(data: validData) {
+        //                DispatchQueue.main.async {
+        //                    cell.imageView?.image = validImage
+        //                    cell.setNeedsLayout()
+        //                }
+        //            }
+        //        }
         
         return cell
     }
@@ -69,6 +90,22 @@ class ElementsTableViewController: UITableViewController {
             let cell = sender as? UITableViewCell,
             let indexPath = tableView.indexPath(for: cell) {
             detailView.element = elements[indexPath.row]
+            detailView.name = myName
         }
+        
+        if let optionsView = segue.destination as? OptionsViewController {
+            optionsView.delegate = self
+            optionsView.name = myName
+        }
+    }
+}
+
+extension ElementsTableViewController: OptionsDelegate {
+    func changeSettings(_ controller: OptionsViewController, _ name: String) {
+        if myName != name {
+            myName = name
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 }
