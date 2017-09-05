@@ -28,9 +28,28 @@ class ElementsTableViewController: UITableViewController {
                 self.elements = validElements
                 DispatchQueue.main.async {
                     self.tableView?.reloadData()
+                    self.prefetchAllImages()
                 }
             }
         }
+    }
+    
+    //MARK: - Functions and Methods
+    
+    func prefetchAllImages() {
+        let thumbUrls = self.elements.map {
+            URL(string: $0.thumb)!
+        }
+        
+//        let imageUrls = self.elements.map {
+//            URL(string: $0.image)!
+//        }
+        
+        let prefetcher = ImagePrefetcher(urls: thumbUrls, completionHandler: { (skippedResources, failedResources, completedResources) in
+            print("Fetched \(completedResources)")
+        })
+        
+        prefetcher.start()
     }
     
     // MARK: - Table view data source
