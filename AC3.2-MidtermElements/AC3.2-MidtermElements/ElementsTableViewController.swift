@@ -15,10 +15,12 @@ class ElementsTableViewController: UITableViewController {
     let cellSegue = "elementSegue"
     let optionsSegue = "optionsSegue"
     var elements = [Element]()
+    var expandingElements = [Element]()
     var myName = "Vic Zhong"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpFooterSpinner()
         loadData()
     }
     
@@ -28,24 +30,28 @@ class ElementsTableViewController: UITableViewController {
                 let validElements = Element.elements(from: validData) {
                 print("We have elements! \(validElements.count)")
                 self.elements = validElements
+                self.expandingElements = validElements
                 DispatchQueue.main.async {
-                    self.tableView?.reloadData()
+                    self.tableView.reloadData()
                     self.prefetchAllImages()
                 }
             }
         }
     }
+
+    func setUpFooterSpinner() {
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spinner.startAnimating()
+        spinner.frame = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 44)
+        self.tableView.tableFooterView = spinner;
+    }
     
     //MARK: - Functions and Methods
     
     func prefetchAllImages() {
-        let thumbUrls = self.elements.map {
+        let thumbUrls = self.expandingElements.map {
             URL(string: $0.thumb)!
         }
-        
-        //        let imageUrls = self.elements.map {
-        //            URL(string: $0.image)!
-        //        }
         
         let prefetcher = ImagePrefetcher(urls: thumbUrls, completionHandler: { (skippedResources, failedResources, completedResources) in
             print("Fetched \(completedResources)")
@@ -57,39 +63,36 @@ class ElementsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return elements.count
+        return expandingElements.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let cellElement = elements[indexPath.row]
+        let cellElement = expandingElements[indexPath.row]
         
         cell.textLabel?.text = cellElement.name
         cell.detailTextLabel?.text = "\(cellElement.symbol)(\(cellElement.number)) \(cellElement.weight)"
         
         let url = URL(string: cellElement.thumb)!
         cell.imageView?.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
-        
-        //        APIRequestManager.manager.getData(endPoint: cellElement.thumb) { (data: Data?) in
-        //            if let validData = data,
-        //                let validImage = UIImage(data: validData) {
-        //                DispatchQueue.main.async {
-        //                    cell.imageView?.image = validImage
-        //                    cell.setNeedsLayout()
-        //                }
-        //            }
-        //        }
-        
+
         return cell
     }
-    
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == self.expandingElements.count - 1 {
+            self.expandingElements.append(contentsOf: self.elements)
+            self.tableView.reloadData()
+        }
+    }
+
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailView = segue.destination as? DetailViewController,
             let cell = sender as? UITableViewCell,
             let indexPath = tableView.indexPath(for: cell) {
-            detailView.element = elements[indexPath.row]
+            detailView.element = expandingElements[indexPath.row]
             detailView.name = myName
         }
         
