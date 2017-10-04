@@ -59,16 +59,6 @@ class DetailViewController: UIViewController {
         let url = URL(string: validElement.image)
         self.imageView.kf.indicatorType = .activity
         self.imageView.kf.setImage(with: url, placeholder: UIImage(named: "placeholder"))
-        
-//        APIRequestManager.manager.getData(endPoint: validElement.image) { (data: Data?) in
-//            if let validData = data,
-//                let validImage = UIImage(data: validData) {
-//                print(validElement.image)
-//                DispatchQueue.main.sync {
-//                    self.imageView.image = validImage
-//                }
-//            }
-//        }
     }
 
     
